@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'APP/css/style.css' %}">
+    <title>My Website</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'landing_page' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Welcome to My Website</h1>
+        <p>Your destination for all things amazing.</p>
+        <a href="#" class="cta-button">Get Started</a>
+    </section>
+    <section class="features">
+        <div class="feature">
+            <h2>Feature 1</h2>
+            <img src="{% static 'APP/images/peter.png' %}" alt="Feature 1">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="feature">
+            <h2>Feature 2</h2>
+            <img src="{% static 'APP/images/peter3.png' %}" alt="Feature 1">
+            <p>Nullam vel velit et ligula condimentum tincidunt.</p>
+        </div>
+        <div class="feature">
+            <h2>Feature 3</h2>
+            <img src="{% static 'APP/images/peter2.png' %}" alt="Feature 1">
+            <p>Proin nec turpis nec sapien rhoncus commodo.</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2023 My Website. All rights reserved.</p>
+    </footer>
+    <script src="{% static 'APP/js/script.js' %}"></script>
+</body>
+</html>

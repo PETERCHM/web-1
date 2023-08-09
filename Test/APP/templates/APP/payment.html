@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #349b30;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .payment-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container" style="background-color: #f2f2f2; padding: 20px;">
+        <h2 style="color: #007bff;">Select Your Convenient Payment Method and Continue Enjoying Our Services</h2>
+        
+        <!-- Mpesa Payment Form -->
+        <form id="mpesa-form">
+            <h2>Mpesa Payment</h2>
+            <label for="mpesa-phone">Phone Number:</label>
+            <input type="tel" id="mpesa-phone" name="mpesa-phone" pattern="[0-9]{10}" required>
+            <label for="mpesa-amount">Amount:</label>
+            <input type="number" id="mpesa-amount" name="mpesa-amount" required>
+            <button type="submit">Pay with Mpesa</button>
+        </form>
+        
+        <!-- Binance Payment Form -->
+        <form id="binance-form">
+            <h2>Binance Payment</h2>
+            <label for="binance-account">Binance Account Number:</label>
+            <input type="text" id="binance-account" name="binance-account" required>
+            <label for="binance-amount">Amount:</label>
+            <input type="number" id="binance-amount" name="binance-amount" required>
+            <button type="submit">Pay with Binance</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.getElementById('mpesa-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const phone = document.getElementById('mpesa-phone').value;
+            const amount = document.getElementById('mpesa-amount').value;
+
+            // Make an Axios request to your Django view function for Mpesa payment
+            axios.post('/mpesa_payment/', { phone, amount })
+                .then(response => {
+                    console.log(response.data);
+                    // Handle the response, e.g., show a success message or redirect
+                    // Redirect to the next page, e.g., Grammarly page
+                    window.location.href = '{% url "grammarly_page" %}';
+                })
+                .catch(error => {
+                    console.error(error);
+                    // Handle errors, e.g., show an error message
+                });
+        });
+        
+        document.getElementById('binance-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const binanceAccount = document.getElementById('binance-account').value;
+            const binanceAmount = document.getElementById('binance-amount').value;
+            // Implement Binance payment logic here
+            alert(`Redirecting to Binance payment for account ${binanceAccount} and amount ${binanceAmount}...`);
+        });
+    </script>
+</body>
+</html>

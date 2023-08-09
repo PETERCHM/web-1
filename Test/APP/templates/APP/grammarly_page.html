@@ -1,0 +1,76 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'APP/css/style.css' %}">
+    <title>Grammarly Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #05fc88;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .grammarly-content {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%; /* Adjust width as needed */
+            max-width: 800px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        grammarly-editor-plugin {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+        }
+        grammarly-editor-plugin textarea {
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'landing_page' %}">Home</a></li>
+                <!-- Add other navigation links here -->
+            </ul>
+        </nav>
+    </header>
+    <section class="grammarly-content">
+        <h1>Welcome to Grammarly</h1>
+        <p>Improve your writing with Grammarly's powerful features...</p>
+        
+        <!-- Grammarly Editor Plugin -->
+        <grammarly-editor-plugin>
+            <textarea></textarea>
+        </grammarly-editor-plugin>
+    </section>
+    <footer>
+        <p>&copy; 2023 My Website. All rights reserved.</p>
+    </footer>
+    <script src="{% static 'APP/js/script.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@grammarly/editor-sdk?clientId=client_FKK1a3Zwk4Q3q7CnWXHDXi"></script>
+</body>
+</html>

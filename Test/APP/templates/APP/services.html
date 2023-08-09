@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'APP/css/style.css' %}">
+
+    <title>Services</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'landing_page' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="services-content">
+        <h2>Our Services</h2>
+        <h2>GRAMMARLY</h2>
+        <ul>
+            <li>
+                <img src="{% static 'APP/images/Grammarly .png' %}">
+                <button id="buy-now-button" class="cta-button">BUY NOW</button>
+            </li>
+        </ul>
+    </section>
+    <footer>
+        <p>&copy; 2023 My Website. All rights reserved.</p>
+    </footer>
+    <script>
+        const paymentUrl = "{% url 'payment' %}";
+    
+        const buyNowButton = document.getElementById('buy-now-button');
+        buyNowButton.addEventListener('click', function() {
+            // Redirect to the payment page using the generated URL
+            window.location.href = paymentUrl;
+        });
+    </script>
+</body>
+</html>
