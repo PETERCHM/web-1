@@ -11,7 +11,7 @@ SECRET_KEY = 'django-insecure-$ks=2uz)nqy_k!oex8_d-4v@rh(6_tkxibga$svmy()3ilksbp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['lisapremium.com', '88.198.22.18', 'www.lisapremium.com', '*']
 
 
 # Application definition
@@ -24,6 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'APP',
+    'mpesa',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -60,12 +62,18 @@ WSGI_APPLICATION = 'project2.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'lucy',   # Replace with your MySQL database name
+        'USER': 'lucy',        # Replace with your MySQL username
+        'PASSWORD': 'lucy2023',    # Replace with your MySQL password
+        'HOST': 'localhost',            # Replace with your MySQL host (usually 'localhost' for local development)
+        'PORT': '',                     # Replace with your MySQL port (usually empty for default port)
     }
 }
+
 
 
 # Password validation
@@ -108,3 +116,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MPESA_CONFIG = {
+        'CONSUMER_KEY': 'T3IfaH3DqCAKsu7OX9LJVCaeRtMBe8py',
+        'CONSUMER_SECRET': 'nWHC3IfKx9em4bEq',
+        'HOST_NAME': 'https://2987-41-89-10-241.ngrok-free.app',
+        'PASS_KEY': 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919',
+        'SAFARICOM_API': 'https://sandbox.safaricom.co.ke',
+        'AUTH_URL': '/oauth/v1/generate?grant_type=client_credentials',
+        'TRANSACTION_TYPE': 'CustomerBuyGoodsOnline',
+        'TILL_NUMBER': '9886465',
+
+        'SHORT_CODE': '174379'
+
+    }

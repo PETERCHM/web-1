@@ -1,12 +1,22 @@
 /* Set background image for the body */
 body {
-    background: #53b357;
+    background: #b3e0b5;
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 }
+
+/* styles.css */
+
+.bottom-image {
+    position: center;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 
 /* Style for the navigation menu */
 header nav ul {
