@@ -2,19 +2,16 @@
 
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 SECRET_KEY = 'django-insecure-$ks=2uz)nqy_k!oex8_d-4v@rh(6_tkxibga$svmy()3ilksbp'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['lisapremium.com', '88.198.22.18', 'www.lisapremium.com', '*']
 
 
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -59,25 +56,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'project2.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'lucy',   # Replace with your MySQL database name
-        'USER': 'lucy',        # Replace with your MySQL username
-        'PASSWORD': 'lucy2023',    # Replace with your MySQL password
-        'HOST': 'localhost',            # Replace with your MySQL host (usually 'localhost' for local development)
-        'PORT': '',                     # Replace with your MySQL port (usually empty for default port)
+        'NAME': 'lucy',   
+        'USER': 'lucy',        
+        'PASSWORD': 'lucy2023',    
+        'HOST': 'localhost',            
+        'PORT': '',                     
     }
 }
 
 
 
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -95,8 +88,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
+
 
 LANGUAGE_CODE = 'en-us'
 
@@ -107,13 +99,9 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

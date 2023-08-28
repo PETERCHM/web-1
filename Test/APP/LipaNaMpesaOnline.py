@@ -4,7 +4,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 from base64 import b64encode
 from APP.models import PaymentTransaction
-from APP.settings import api_settings
+from .settings1 import api_settings
 
 # Read variables from settings file
 
